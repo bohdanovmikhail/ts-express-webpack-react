@@ -1,0 +1,30 @@
+{
+  "name": "ts-express-webpack-react",
+  "version": "0.0.1",
+  "description": "Boilerplate for React app based on Typescript and builded with Webpack",
+  "scripts": {
+    "start": "echo \"Error: no run script specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bohdanovmikhail/ts-express-webpack-react.git"
+  },
+  "keywords": [
+    "react",
+    "webpack",
+    "typescript",
+    "boilerplate"
+  ],
+  "author": {
+    "name": "Mikhail Bohdanov",
+    "email": "bohdanov.mikhail@gmail.com",
+    "url": "https://github.com/bohdanovmikhail"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bohdanovmikhail/ts-express-webpack-react/issues"
+  },
+  "homepage": "https://github.com/bohdanovmikhail/ts-express-webpack-react#readme",
+  "dependencies": {},
+  "devDependencies": {}
+}
