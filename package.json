@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Boilerplate for React app based on Typescript and builded with Webpack",
   "scripts": {
-    "start": "node ./index.js"
+    "start": "ts-node ./index.ts"
   },
   "repository": {
     "type": "git",
@@ -27,7 +27,11 @@
   "homepage": "https://github.com/bohdanovmikhail/ts-express-webpack-react#readme",
   "dependencies": {},
   "devDependencies": {
+    "@types/node": "^8.0.47",
+    "awesome-typescript-loader": "^3.3.0",
     "html-webpack-plugin": "^2.30.1",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.6.1",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.7.1"
   }

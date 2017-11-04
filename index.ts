@@ -1,9 +1,9 @@
 // Global imports
-const path = require('path');
-const webpack = require('webpack');
-const DevServer = require('webpack-dev-server');
+import * as path from 'path';
+import * as webpack from 'webpack';
+import * as DevServer from 'webpack-dev-server';
 
-const HtmlPlugin = require('html-webpack-plugin');
+import * as HtmlPlugin from 'html-webpack-plugin';
 
 // Utils, helpers, etc. imports
 
@@ -13,7 +13,7 @@ const HtmlPlugin = require('html-webpack-plugin');
 const WEBPACK_CONFIG = {
   context: path.resolve('./src'),
   entry: {
-    main: ['./index.js']
+    main: ['./index.ts']
   },
   resolve: {
     extensions: ['.js', '.ts', '.tsx'],
