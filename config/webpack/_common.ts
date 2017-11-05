@@ -12,7 +12,7 @@ import loaders from './_loaders';
 // Main code
 export const entries = {
   main: [
-    srcDir('index.ts'),
+    srcDir('index.tsx'),
   ],
 };
 

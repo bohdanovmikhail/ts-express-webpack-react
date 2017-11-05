@@ -1,16 +1,38 @@
 // Global imports
+import {
+  NamedModulesPlugin,
+  HotModuleReplacementPlugin,
+  NoEmitOnErrorsPlugin,
+} from 'webpack';
 import { extend } from 'lodash';
 
 // Utils, helpers, etc. imports
 import { rootDir, srcDir } from '../helpers';
 
 // Constants
-import common from './_common';
+import common, { entries } from './_common';
+import plugins from './_plugins';
 
-import { runtimeOptions, buildOptions } from '../settings';
+import {
+  runtimeOptions,
+  buildOptions,
+  developMode,
+} from '../settings';
 
 
 // Main code
+plugins.push(new NamedModulesPlugin());
+
+if (runtimeOptions.hot) {
+  entries.main.unshift(
+    `webpack-dev-server/client?http://${developMode.host}:${developMode.port}`,
+    'webpack/hot/only-dev-server',
+  );
+
+  plugins.push(new HotModuleReplacementPlugin());
+  plugins.push(new NoEmitOnErrorsPlugin());
+}
+
 export const watchOptions = {
   aggregateTimeout: 300,
   pool: 1000,
@@ -21,6 +43,8 @@ export const watchOptions = {
 
 export const devServerConfig = {
   watchOptions: runtimeOptions.watch ? watchOptions : null,
+  hot: runtimeOptions.hot,
+  inline: runtimeOptions.hot,
   publicPath: buildOptions.publicFilesPath,
   contentBase: srcDir(),
   stats: {

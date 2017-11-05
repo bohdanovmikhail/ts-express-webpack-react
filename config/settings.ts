@@ -18,6 +18,8 @@ const {
 
   // Runtime options
   { name: 'watch', type: Boolean, defaultValue: false, group: ['runtime'] },
+  { name: 'debug', type: Boolean, defaultValue: false, group: ['runtime'] },
+  { name: 'hot', type: Boolean, defaultValue: false, group: ['runtime'] },
 
   // Develop mode
   { name: 'host', type: String, defaultValue: 'localhost', group: ['develop'] },
@@ -56,6 +58,8 @@ export const runOptions = {
 
 export const runtimeOptions = {
   watch: runtime.watch,
+  debug: runtime.debug,
+  hot: runtime.hot,
 };
 
 export const buildOptions = {
@@ -94,6 +98,8 @@ export namespace CLI {
 
   interface RuntimeOptions {
     watch: boolean;
+    debug: boolean;
+    hot: boolean;
   }
 
   interface DevelopModeOptions {
