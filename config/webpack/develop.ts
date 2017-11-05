@@ -2,17 +2,26 @@
 import { extend } from 'lodash';
 
 // Utils, helpers, etc. imports
-import { srcDir } from '../helpers';
+import { rootDir, srcDir } from '../helpers';
 
 // Constants
 import common from './_common';
 
-import { buildOptions } from '../settings';
+import { runtimeOptions, buildOptions } from '../settings';
 
 
 // Main code
+export const watchOptions = {
+  aggregateTimeout: 300,
+  pool: 1000,
+  ignore: [
+    rootDir('node_modules'),
+  ],
+};
+
 export const devServerConfig = {
-  publicPath: buildOptions.publicPath,
+  watchOptions: runtimeOptions.watch ? watchOptions : null,
+  publicPath: buildOptions.publicFilesPath,
   contentBase: srcDir(),
   stats: {
     colors: true,
@@ -20,13 +29,14 @@ export const devServerConfig = {
 };
 
 export default extend({}, common, {
+  devtool: 'cheap-inline-module-source-map',
   output: {
     path: buildOptions.distDir,
-    publicPath: buildOptions.publicPath,
+    publicPath: buildOptions.publicFilesPath,
 
     filename: '[name].js?[hash]',
     sourceMapFilename: '[name].map?[hash]',
-    chunkFilename: '[id].js?[hash]',
+    chunkFilename: '[id].chunk.js?[hash]',
   },
 });
 

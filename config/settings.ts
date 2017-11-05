@@ -7,11 +7,24 @@ import { rootDir } from './helpers';
 // Constants
 const {
   run,
+  runtime,
+  develop,
+  production,
 } = commandLineArgs([
   // Run options
-  { name: 'env', alias: 'e', type: String, defaultValue: 'develop', group: ['run'] },
-  { name: 'dist', alias: 'd', type: String, defaultValue: './dist', group: ['run'] },
-  { name: 'publicPath', type: String, defaultValue: '/', group: ['run'] },
+  { name: 'env', alias: 'e', type: String, group: ['run'] },
+  { name: 'distPath', alias: 'd', type: String, defaultValue: './dist', group: ['run'] },
+  { name: 'publicFilesPath', type: String, defaultValue: '/', group: ['run'] },
+
+  // Runtime options
+  { name: 'watch', type: Boolean, defaultValue: false, group: ['runtime'] },
+
+  // Develop mode
+  { name: 'host', type: String, defaultValue: 'localhost', group: ['develop'] },
+  { name: 'port', type: Number, defaultValue: 3000, group: ['develop'] },
+
+  // Production mode
+  { name: 'compressOutput', type: Boolean, defaultValue: false, group: ['production'] },
 
 ]) as CLI.Options;
 
@@ -23,6 +36,11 @@ switch (run.env) {
   case 'develop':
     run.env = 'develop';
     break;
+  case 'p':
+  case 'prod':
+  case 'production':
+    run.env = 'production';
+    break;
 
   default:
     throw new Error('Not supported env type');
@@ -32,27 +50,59 @@ switch (run.env) {
 export const runOptions = {
   env: {
     isDevelop: run.env === 'develop',
+    isProduction: run.env === 'production',
   },
 };
 
+export const runtimeOptions = {
+  watch: runtime.watch,
+};
+
 export const buildOptions = {
-  distDir: rootDir(run.dist),
-  publicPath: run.publicPath,
+  distDir: rootDir(run.distPath),
+  publicFilesPath: run.publicFilesPath,
+};
+
+export const developMode = {
+  host: develop.host,
+  port: develop.port,
+};
+
+export const productionMode = {
+  compressOutput: production.compressOutput,
 };
 
 
 // Modules, interfaces, types declarations
 export namespace CLI {
-  export type EnvType = 'd' | 'dev' | 'develop';
+  export type EnvType = 'd' | 'dev' | 'develop' |
+                        'p' | 'prod' | 'production';
 
   export interface Options {
     run: RunOptions;
+    runtime: RuntimeOptions;
+    develop: DevelopModeOptions;
+    production: ProductionModeOptions;
   }
 
 
   interface RunOptions {
     env: EnvType;
-    dist: string;
-    publicPath: string;
+    distPath: string;
+    publicFilesPath: string;
   }
+
+  interface RuntimeOptions {
+    watch: boolean;
+  }
+
+  interface DevelopModeOptions {
+    host: string;
+    port: number;
+  }
+
+  interface ProductionModeOptions {
+    compressOutput: boolean;
+  }
+
 }
