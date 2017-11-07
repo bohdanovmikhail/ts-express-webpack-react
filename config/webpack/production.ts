@@ -1,6 +1,7 @@
 // Global imports
 import {
   optimize as webpackOptimize,
+  DefinePlugin,
 } from 'webpack';
 import { extend } from 'lodash';
 
@@ -22,6 +23,11 @@ if (runOptions.env.isProduction) {
   plugins.push(new webpackOptimize.AggressiveMergingPlugin({
     minSizeReduce: 1.5,
     moveToParents: true,
+  }));
+  plugins.push(new DefinePlugin({
+    'process.env': {
+      NODE_ENV: JSON.stringify('production'),
+    },
   }));
 
   if (productionMode.compressOutput) {

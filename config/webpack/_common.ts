@@ -23,7 +23,12 @@ export default {
   entry: {
     ...entries,
 
-    // TODO here must be all vendors
+    vendors: [
+      'react',
+      'react-dom',
+      'react-router',
+      'react-router-dom',
+    ],
   },
   module: {
     rules: values(loaders),

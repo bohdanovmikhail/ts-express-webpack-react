@@ -1,5 +1,9 @@
 // Global imports
 import * as React from 'react';
+import {
+  Switch,
+  Route,
+} from 'react-router-dom';
 
 // Redux imports
 
@@ -18,9 +22,31 @@ import * as React from 'react';
 export class MainPage extends React.Component {
   render() {
     return (
-      <div>
-        Hello world
-      </div>
+      <Switch>
+        <Route path="/" exact render={() => (
+          <div>
+            Main page
+          </div>
+        )}/>
+        <Route path="/page-1" render={() => (
+          <div>
+            Page 1
+
+            <Switch>
+              <Route path="/page-1/sub-page" exact render={() => (
+                <div>
+                  Sub page
+                </div>
+              )} />
+            </Switch>
+          </div>
+        )} />
+        <Route path="/page-2" render={() => (
+          <div>
+            Page 2
+          </div>
+        )} />
+      </Switch>
     );
   }
 }

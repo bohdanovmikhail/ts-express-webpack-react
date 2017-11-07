@@ -1,6 +1,7 @@
 // Global imports
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 // Redux imports
 
@@ -19,9 +20,9 @@ const ROOT_ELEMENT = document.getElementById('root');
 
 // Run code
 ReactDOM.render(
-  <div>
+  <BrowserRouter>
     <MainPage />
-  </div>,
+  </BrowserRouter>,
   ROOT_ELEMENT,
 );
 

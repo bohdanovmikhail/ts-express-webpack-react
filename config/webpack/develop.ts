@@ -47,6 +47,7 @@ export const devServerConfig = {
   inline: runtimeOptions.hot,
   publicPath: buildOptions.publicFilesPath,
   contentBase: srcDir(),
+  historyApiFallback: true,
   stats: {
     colors: true,
   },
