@@ -2,6 +2,7 @@
 import {
   optimize as webpackOptimize,
   ProgressPlugin,
+  DefinePlugin,
 } from 'webpack';
 import * as HtmlPlugin from 'html-webpack-plugin';
 
@@ -9,18 +10,22 @@ import * as HtmlPlugin from 'html-webpack-plugin';
 import { srcDir } from '../helpers';
 
 // Constants
+import { runtimeOptions } from '../settings';
 
 
 // Main code
 export default [
   new HtmlPlugin({
-    template: srcDir('index.html'),
+    template: srcDir('web', 'index.html'),
     chunks: ['main', 'vendors'],
   }),
   new ProgressPlugin(),
   new webpackOptimize.CommonsChunkPlugin({
     name: 'vendors',
     minChunks: Infinity,
+  }),
+  new DefinePlugin({
+    GLOBAL_DEBUG: JSON.stringify(runtimeOptions.debug),
   }),
 ];
 

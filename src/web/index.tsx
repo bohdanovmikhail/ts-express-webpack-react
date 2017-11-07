@@ -1,28 +1,26 @@
 // Global imports
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
 
 // Redux imports
 
 // Utils, helpers, etc. imports
+import { buildRoot } from 'web/utils/build-root';
 
 // Util components imports
 
 // Main components imports
-import { MainPage } from 'components/main-page';
+import { Root } from 'web/pages/root';
 
 // Styles, languages, etc. imports
 
 // Constants
 const ROOT_ELEMENT = document.getElementById('root');
 
-
 // Run code
-ReactDOM.render(
-  <BrowserRouter>
-    <MainPage />
-  </BrowserRouter>,
+buildRoot(
+  (
+    <Root />
+  ),
   ROOT_ELEMENT,
 );
 
