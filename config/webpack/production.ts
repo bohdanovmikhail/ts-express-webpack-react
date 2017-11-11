@@ -50,18 +50,6 @@ if (runOptions.env.isProduction) {
   }
 }
 
-extend({}, common, {
-  output: {
-    path: buildOptions.distDir,
-    publicPath: buildOptions.publicFilesPath,
-
-    filename: '[name].js?[hash]',
-    sourceMapFilename: '[name].map?[hash]',
-    chunkFilename: '[id].js?[hash]',
-  },
-});
-
-
 export default extend({}, common, {
   devtool: 'source-map',
   output: {

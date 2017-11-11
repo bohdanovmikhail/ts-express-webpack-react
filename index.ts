@@ -31,16 +31,16 @@ if (runOptions.env.isDevelop) {
     webpackDevServer.listen(developMode.port, developMode.host);
 
   } else {
-    webpackCompiler.run(() => {});
+    // webpackCompiler.run(() => {});
   }
 
 } else if (runOptions.env.isProduction) {
-  webpackCompiler = webpack(productionEnv);
+  // webpackCompiler = webpack(productionEnv);
 
   if (runtimeOptions.watch) {
-    webpackCompiler.watch(webpackWatchConfig, () => {});
+    // webpackCompiler.watch(webpackWatchConfig, () => {});
 
   } else {
-    webpackCompiler.run(() => {});
+    // webpackCompiler.run(() => {});
   }
 }

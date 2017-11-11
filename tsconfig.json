@@ -7,29 +7,15 @@
     "lib": ["es6", "es7", "dom"],
     "jsx": "react",
     "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "declaration": false,
     "noImplicitAny": false,
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    "removeComments": true,
     "sourceMap": true,
     "strictNullChecks": false,
-    "types": ["node", "webpack-env"],
     "typeRoots": [
+      "node_modules/@types",
       "types"
     ]
-  },
-  "include": [
-    "src",
-    "node_modules/@types"
-  ],
-  "exclude": [
-    "dist",
-    "node_modules"
-  ],
-  "types": [
-    "typePatches"
-  ]
+  }
 }
