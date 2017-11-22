@@ -37,16 +37,21 @@ For run server with custom params, you can use
 
 #### Run options
 `--env` - choose environment for run app
+
 `--distPath` - directory to output compiled files
+
 `--publicFilesPath` - path to files in site
 
 #### Runtime options
 `--watch` - enable watching for auto rebuild app
+
 `--debug` - enable debug mode
+
 `--hot` - enable hot module replacement
 
 #### Develop mode
 `--host` - set host address for start server
+
 `--port` - set listen port in server
 
 #### Production mode
