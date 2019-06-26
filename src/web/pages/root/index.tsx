@@ -8,6 +8,7 @@ import * as React from 'react';
 // Util components imports
 
 // Main components imports
+import { House } from 'components/elements/house';
 
 // Styles, languages, etc. imports
 
@@ -16,10 +17,10 @@ import * as React from 'react';
 
 // Run code
 export class Root extends React.Component {
-  render() {
+  public render() {
     return (
       <div>
-        Hello
+        <House floors={4} />
       </div>
     );
   }

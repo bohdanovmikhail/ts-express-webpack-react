@@ -1,0 +1,14 @@
+
+.house {
+  .roof {
+    margin: 0 -20px;
+  }
+
+  .body {
+    display: grid;
+    grid-template-columns: 25% auto 25%;
+    grid-template-areas: ". . .";
+    padding: 10px 20px;
+    border: 1px solid #aaa;
+  }
+}

@@ -1,0 +1,12 @@
+
+.window {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid #aaaaaa;
+  height: 30px;
+
+  .part {
+    border: 1px solid #aaaaaa;
+  }
+}

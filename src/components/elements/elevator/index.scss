@@ -1,0 +1,22 @@
+
+.elevator {
+  width: 50px;
+  height: 90px;
+
+  &.open {
+
+    & .door {
+
+      &.left {}
+
+      &.right {}
+    }
+  }
+
+  .door {
+
+    &.left {}
+
+    &.right {}
+  }
+}

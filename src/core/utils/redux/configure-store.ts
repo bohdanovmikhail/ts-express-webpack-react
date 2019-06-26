@@ -24,7 +24,7 @@ export function configureStore(
 
 export function configureStore(
   rootReducer: Reducer<RootState>,
-  initialState = {} as RootState,
+  initialState = <RootState>{},
 ): Store<RootState> {
   const middlewares: Middleware[] = [];
 
